@@ -34,3 +34,11 @@ def clean_data_file():
         f.write("201\t305671\n7892\t298140\n501\t738293\n")
     yield file_path
     os.remove(file_path)
+
+@pytest.fixture
+# Add the correct argument so that this fixture can chain with the tmpdir fixture
+def empty_file(tmpdir):
+    # Use the appropriate method to create an empty file in the temporary directory
+    file_path = tmpdir.join("empty.txt")
+    open(file_path, "w").close()
+    yield file_path

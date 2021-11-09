@@ -1,2 +1,26 @@
-# python-ds-unit-testing
-This repo provide quick application of unit testing with in a data science project
+```
+src/
+├── data/
+│  ├──__init__.py
+│  ├──preprocessing_helpers.py
+├── features/
+│  ├──init__.py
+│  ├──as_numpy.py
+├──models/
+│  ├──__init__.py
+│  ├──train.py
+├──__init__.py
+├──utils.py
+tests/
+├──data/
+│  ├──__init__.py
+│  ├──test_preprocessing_helpers.py
+├──features/
+│  ├──__init__.py
+│  ├──test_as_numpy.py
+├──models/
+│  ├──__init__.py
+│  ├──test_train.py
+├──__init__.py
+```
+

@@ -1,3 +1,5 @@
+[![Build Status](https://app.travis-ci.com/gokhankesler/python-ds-unit-testing.svg?branch=main)](https://app.travis-ci.com/gokhankesler/python-ds-unit-testing)
+
 ```
 src/
 ├── data/

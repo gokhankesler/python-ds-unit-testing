@@ -6,5 +6,6 @@ pluggy==1.0.0
 py==1.11.0
 pyparsing==2.4.7
 pytest==6.2.5
+pytest-mock==3.6.1
 toml==0.10.2
--e git+https://github.com/gokhankesler/python-ds-unit-testing@5ba41529f1bb105fb49c14c1a6e32f642c625203#egg=unitTest
+-e git+https://github.com/gokhankesler/python-ds-unit-testing@ec153745693956ebb98571779ba740fca48dca2d#egg=unitTest

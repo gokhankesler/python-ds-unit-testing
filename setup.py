@@ -12,7 +12,8 @@ setup(
     packages=find_packages(include=["src", "src.*"]),
     install_requires=[
         'numpy',
-        'pytest'
+        'pytest',
+        'pytest-mock',
 ],
     version='0.0.1',
 )

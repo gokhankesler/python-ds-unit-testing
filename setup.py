@@ -11,8 +11,8 @@ setup(
     name='unitTest',
     packages=find_packages(include=["src", "src.*"]),
     install_requires=[
-        'numpy==1.21.4',
-        'pytest==6.2.5'
+        'numpy',
+        'pytest'
 ],
     version='0.0.1',
 )

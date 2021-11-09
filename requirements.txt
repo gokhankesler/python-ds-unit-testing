@@ -7,5 +7,4 @@ py==1.11.0
 pyparsing==2.4.7
 pytest==6.2.5
 toml==0.10.2
-# Editable install with no version control (unitTest==0.0.1)
--e /Users/gkesler/PycharmProjects/unitTest
+-e git+https://github.com/gokhankesler/python-ds-unit-testing@5ba41529f1bb105fb49c14c1a6e32f642c625203#egg=unitTest

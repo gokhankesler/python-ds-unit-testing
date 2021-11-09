@@ -10,5 +10,9 @@ setup(
     description="A package for converting between imperial unit lengths and weights.",
     name='unitTest',
     packages=find_packages(include=["src", "src.*"]),
+    install_requires=[
+        'numpy==1.21.4',
+        'pytest==6.2.5'
+],
     version='0.0.1',
 )

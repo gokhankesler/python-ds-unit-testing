@@ -7,4 +7,4 @@ install:
 script:
   - pytest --cov=src tests # Point to the source directory
 after_success:
-  -codecov  # Uploads report to codecov.io
+  - codecov  # Uploads report to codecov.io

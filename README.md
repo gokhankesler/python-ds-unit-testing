@@ -39,7 +39,7 @@ source venv/bin/activate
 will activate your virtual environment. It will now be our development environment.
 
 ## Installing all dependencies.
-Now we will dependencies of the project. 
+Now we will install dependencies of the project. 
 ```
 pip install -e .
 ```

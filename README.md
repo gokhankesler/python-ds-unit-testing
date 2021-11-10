@@ -8,8 +8,8 @@
 This repo exhibits the example of unit testing practices in a Data Science project.
 
 # Setup
-## Configuring the Virtual Environment.
-First of all let's create a virtual enviromant not to interefere with you existing python environment.
+## Configuring the virtual environment.
+First of all, let's create a virtual environment not to interfere with your existing python environment.
 
 If it is not installed, first, let's install pip3, the package manager. Use your terminal:
 
@@ -25,20 +25,20 @@ You can run the command to check the version.
 virtualenv --version
 ```
 
-If all is well, let's continue. We will create the virtual enviroment with:
+If all is well, let's continue. We will create the virtual environment with:
 
 ```
 virtualenv venv 
 ```
-It creates virtual environment named as 'venv'. Then:
+It creates a virtual environment named 'venv'. Next:
 
 ```
 source venv/bin/activate
 ```
-will activate your virtual enviroment. It will now be our development environment.
+will activate your virtual environment. It will now be our development environment.
 
-
-Now we will dependancies of the project. 
+## Installing all dependencies.
+Now we will dependencies of the project. 
 ```
 pip install -e .
 ```

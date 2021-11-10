@@ -1,1 +1,1 @@
-from src.features import as_numpy
+from .as_numpy import *

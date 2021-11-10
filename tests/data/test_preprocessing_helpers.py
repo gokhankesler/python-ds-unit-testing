@@ -1,7 +1,8 @@
-from numpy import unicode_
-import pytest
 from unittest.mock import call
-from src.data.preprocessing_helpers import convert_to_int, row_to_list, preprocess
+
+import pytest
+
+from data.preprocessing_helpers import convert_to_int, row_to_list, preprocess
 
 
 @pytest.fixture
@@ -16,7 +17,17 @@ def raw_and_clean_data_file(tmpdir):
                 "1,285\t389129\n"
                 )
     return raw_path, clean_path
-    
+
+
+def row_to_list_bug_free(row):
+    return_values = {"1,801\t201,411\n": ["1,801", "201,411"],
+                     "1,767565,112\n": None,
+                     "2,002\t333,209\n": ["2,002", "333,209"],
+                     "1990\t782,911\n": ["1990", "782,911"],
+                     "1,285\t389129\n": ["1,285", "389129"],
+                     }
+    return return_values[row]
+
 
 def convert_to_int_bug_free(comma_separated_integer_string):
     return_values = {"1,801": 1801,
@@ -36,8 +47,7 @@ class TestConvertToInt(object):
         test_argument = "756"
         expected = 756
         actual = convert_to_int(test_argument)
-        message = "Expected: 756, Actual: {0}".format(actual)
-        assert actual == expected, message
+        assert actual == expected, "Expected: 756, Actual: {0}".format(actual)
 
     def test_with_one_comma(self):
         test_argument = "2,081"
@@ -64,7 +74,7 @@ class TestConvertToInt(object):
         assert actual == expected, "Expected: None, Actual: {0}".format(actual)
 
     def test_on_float_valued_string(self):
-        test_argument = "23,816.92"
+        test_argument = "6.9"
         expected = None
         actual = convert_to_int(test_argument)
         assert actual == expected, "Expected: None, Actual: {0}".format(actual)
@@ -100,23 +110,29 @@ class TestRowToList(object):
         actual = row_to_list("1,059\t186,606\n")
         expected = ["1,059", "186,606"]
         assert actual == expected, "Expected: {0}, Actual: {1}".format(expected, actual)
-        
-        
+
+
 class TestPreprocess(object):
-    # Add the correct argument to use the mocking fixture in this test
     def test_on_raw_data(self, raw_and_clean_data_file, mocker):
         raw_path, clean_path = raw_and_clean_data_file
-        # Replace the dependency with the bug-free mock
+        row_to_list_mock = mocker.patch("data.preprocessing_helpers.row_to_list", side_effect=row_to_list_bug_free)
         convert_to_int_mock = mocker.patch("data.preprocessing_helpers.convert_to_int",
-                                        side_effect=convert_to_int_bug_free)
+                                           side_effect=convert_to_int_bug_free
+                                           )
         preprocess(raw_path, clean_path)
-        # Check if preprocess() called the dependency correctly
+        assert row_to_list_mock.call_args_list == [call("1,801\t201,411\n"),
+                                                   call("1,767565,112\n"),
+                                                   call("2,002\t333,209\n"),
+                                                   call("1990\t782,911\n"),
+                                                   call("1,285\t389129\n")
+                                                   ]
         assert convert_to_int_mock.call_args_list == [call("1,801"), call("201,411"), call("2,002"), call("333,209"),
-                                                    call("1990"),  call("782,911"), call("1,285"), call("389129")
-                                                    ]
+                                                      call("1990"),  call("782,911"), call("1,285"), call("389129")
+                                                      ]
         with open(clean_path, "r") as f:
             lines = f.readlines()
         first_line = lines[0]
-        assert first_line == "1801\\t201411\\n"
+        assert first_line == "1801\t201411\n"
         second_line = lines[1]
-        assert second_line == "2002\\t333209\\n" 
+        assert second_line == "2002\t333209\n"
+

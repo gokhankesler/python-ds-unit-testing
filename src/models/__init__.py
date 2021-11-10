@@ -1,1 +1,1 @@
-from src.models import train
+from .train import *

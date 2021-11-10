@@ -1,7 +1,6 @@
 # Data Science Unit Testing
 -----------------
 
-[![GitHub release (latest by date)](https://img.shields.io/github/v/release/gokhankesler/python-ds-unit-testing?display_name=0.1.0)](https://github.com/gokhankesler/python-ds-unit-testing)
 [![GitHub license](https://img.shields.io/github/license/gokhankesler/python-ds-unit-testing)](https://github.com/gokhankesler/python-ds-unit-testing)
 [![Build Status](https://app.travis-ci.com/gokhankesler/python-ds-unit-testing.svg?branch=main)](https://app.travis-ci.com/gokhankesler/python-ds-unit-testing)
 [![codecov](https://codecov.io/gh/gokhankesler/python-ds-unit-testing/branch/main/graph/badge.svg?token=ZO9L2Q6WYP)](https://codecov.io/gh/gokhankesler/python-ds-unit-testing)
